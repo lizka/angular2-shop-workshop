@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-md-8 col-lg-8 col-sm-12">
+    <div *ngFor="let item of productList" class="input-group" style="padding: 5px;">
+      <div class="input-group-addon"><input type="checkbox" [value]="item.done" (change)="item.done = !item.done"></div>
+      <div class="form-control" style="height: auto; padding: 0;">
+        <app-product [product]="item"></app-product>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4 col-lg-4 col-sm-12">
+    <p> <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span><span> Basket:</span></p>
+    <div *ngFor="let item of productList">
+      <p *ngIf="item.done"> <app-product [product]="item"></app-product></p>
+    </div>
+  </div>
+</div>

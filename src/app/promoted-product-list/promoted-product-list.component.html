@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-md-8 col-lg-8 col-sm-12">
+    <h5>
+      {{ title }}
+    </h5>
+    <ul *ngFor="let item of promoted, index as i" class="list-group">
+      <li class="list-group-item" (click)="selectItem(i)"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> {{ item }}</li>
+    </ul>
+    </div>
+  <div class="col-md-4 col-lg-4 col-sm-12">
+    <h5> <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Fav: {{ promoted[selectedIndex] }}</h5>
+  </div>
+</div>
+
+

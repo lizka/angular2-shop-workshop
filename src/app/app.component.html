@@ -1,0 +1,18 @@
+<div class="container">
+  <div *ngIf="promotedItemsPromise | async as promoted; else loading">
+    <app-promoted-product-list [promoted]="promoted"></app-promoted-product-list>
+  </div>
+  <ng-template #loading>
+    <div class="alert alert-info" *ngIf="userPromise | async as user">Hey {{ user.name }}, wait a sec for your fav products...</div>
+  </ng-template>
+
+  <h4>Shop</h4>
+  <div class="input-group" style="margin-bottom: 20px">
+    <div class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
+    <input class="form-control" placeholder="I'm case sensitive.. ;)" type="text" [formControl]="query">
+    <div class="input-group-addon" (click)="sort()">Sort</div>
+  </div>
+
+  <app-product-list [productList]="filteredProducts" ></app-product-list>
+
+</div>
